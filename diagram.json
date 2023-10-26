@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "author": "Sergio Lugo",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 77.4, "left": -48.6, "attrs": {} },
+    { "type": "wokwi-led", "id": "led1", "top": -42, "left": 119, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic1",
+      "top": -36.9,
+      "left": 274.3,
+      "attrs": { "distance": "400" }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic2",
+      "top": -46.5,
+      "left": -205.7,
+      "attrs": { "distance": "46" }
+    }
+  ],
+  "connections": [
+    [ "uno:5V", "ultrasonic2:VCC", "red", [ "v57.5", "h-149.8" ] ],
+    [ "uno:5V", "ultrasonic1:VCC", "red", [ "v57.5", "h71" ] ],
+    [ "ultrasonic1:GND", "uno:GND.3", "black", [ "v0" ] ],
+    [ "uno:GND.2", "ultrasonic2:GND", "black", [ "v28.7", "h-111.3" ] ],
+    [ "uno:12", "ultrasonic1:ECHO", "green", [ "v9.6", "h106.1" ] ],
+    [ "uno:13", "ultrasonic1:TRIG", "green", [ "v38.4", "h0.4" ] ],
+    [ "uno:10", "ultrasonic2:ECHO", "green", [ "v-28.8", "h0.7" ] ],
+    [ "uno:11", "ultrasonic2:TRIG", "green", [ "v-19.2", "h0.6" ] ],
+    [ "led1:C", "uno:7", "green", [ "v0" ] ],
+    [ "led1:A", "uno:GND.1", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
